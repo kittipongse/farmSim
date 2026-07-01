@@ -1,0 +1,230 @@
+:root {
+  --fs-green: #2d6a4f;
+  --fs-green-light: #40916c;
+  --fs-cream: #fefae0;
+  --fs-gold: #f4a261;
+  --fs-text: #ffffff;
+  --fs-text-shadow:
+    0 0 2px rgba(0, 0, 0, 1),
+    0 0 10px rgba(0, 0, 0, 0.82),
+    0 0 22px rgba(0, 0, 0, 0.5),
+    0 2px 5px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(255, 255, 255, 0.5),
+    0 0 18px rgba(255, 255, 255, 0.25);
+  --fs-text-shadow-strong:
+    0 0 3px rgba(0, 0, 0, 1),
+    0 0 14px rgba(0, 0, 0, 0.88),
+    0 0 30px rgba(0, 0, 0, 0.58),
+    0 3px 7px rgba(0, 0, 0, 0.95),
+    0 0 12px rgba(255, 255, 255, 0.62),
+    0 0 24px rgba(255, 255, 255, 0.32);
+  --fs-panel: rgba(12, 28, 52, 0.82);
+  --fs-bg-image: url('/resource/images/bg1.png');
+  --cardgame-image: url('/resource/images/cardgame.png');
+  --fs-bg-size: 100% 100%;
+  --fs-bg-position: center center;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  min-height: 100dvh;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #87c9e8;
+  color: var(--fs-text);
+  font-weight: 700;
+  text-shadow: var(--fs-text-shadow);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--fs-bg-image);
+  background-position: var(--fs-bg-position);
+  background-size: var(--fs-bg-size);
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--fs-text);
+  font-weight: 700;
+  text-shadow: var(--fs-text-shadow);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.page-title,
+.lead {
+  text-shadow: var(--fs-text-shadow-strong);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+.form-label,
+small,
+.lead,
+.page-title,
+.text-muted,
+.text-secondary,
+.text-dark,
+.text-body {
+  color: var(--fs-text);
+  font-weight: 700;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.text-success {
+  color: #c8e6c9 !important;
+  font-weight: 800;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.text-warning {
+  color: #ffe082 !important;
+  font-weight: 800;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.text-danger {
+  color: #ef9a9a !important;
+  font-weight: 800;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.text-info {
+  color: #90caf9 !important;
+  font-weight: 800;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 700;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.page-title {
+  font-weight: 800;
+}
+
+.btn-farm {
+  background: var(--fs-green);
+  border-color: var(--fs-green);
+  color: #fff;
+  font-weight: 800;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.btn-farm:hover {
+  background: var(--fs-green-light);
+  border-color: var(--fs-green-light);
+  color: #fff;
+}
+
+.btn-outline-success {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.85);
+  font-weight: 800;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.btn-outline-success:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-outline-secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  font-weight: 800;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.btn-outline-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  color: #fff;
+}
+
+.card-farm {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background: var(--fs-panel);
+  color: var(--fs-text);
+  backdrop-filter: blur(6px);
+}
+
+.card-farm .card-body {
+  color: var(--fs-text);
+}
+
+.badge-lobby {
+  background: var(--fs-gold);
+  color: #fff;
+  font-weight: 800;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.form-control,
+.form-select {
+  color: #212529;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+.alert {
+  font-weight: 700;
+  text-shadow: var(--fs-text-shadow);
+}
+
+.alert-warning {
+  background: rgba(255, 152, 0, 0.9);
+  border-color: transparent;
+  color: #fff;
+}
+
+.alert-danger {
+  color: #fff;
+}
+
+.alert-info {
+  background: rgba(33, 150, 243, 0.85);
+  border-color: transparent;
+  color: #fff;
+}
+
+.alert-success {
+  color: #fff;
+}

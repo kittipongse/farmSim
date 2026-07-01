@@ -1,0 +1,18 @@
+/* Phase 1 shared background & logo */
+.phase-screen-bg {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: #fff;
+  font-weight: 700;
+  background: transparent;
+}
+
+.phase-logo-img {
+  display: block;
+  max-width: min(440px, 92vw);
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1));
+}
