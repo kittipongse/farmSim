@@ -11,7 +11,5 @@ export function selectRegion(playerId, regionId) {
 export function uploadProfile(playerId, file) {
   const form = new FormData()
   form.append('profile', file)
-  return api.post(`/players/${playerId}/upload-profile`, form, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  }).then(unwrap)
+  return api.post(`/players/${playerId}/upload-profile`, form).then(unwrap)
 }
