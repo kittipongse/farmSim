@@ -7,10 +7,11 @@ import PlayerJoinList from '@/components/PlayerJoinList.vue'
 import CardSprite from '@/components/cards/CardSprite.vue'
 import MonthSimulationOverlay from '@/components/simulation/MonthSimulationOverlay.vue'
 import GameSummaryPanel from '@/components/GameSummaryPanel.vue'
+import ThailandGameMap from '@/components/dashboard/ThailandGameMap.vue'
 import { useGameRoomStore } from '@/stores/gameRoomStore'
 import { startDashboardPolling } from '@/services/pollingService'
 import { getDashboard } from '@/services/dashboardService'
-import { getRoomCardsStatus } from '@/services/cardService'
+import { getPlayerCards, getRoomCardsStatus } from '@/services/cardService'
 import { DECISION_CARDS, THAI_MONTHS } from '@/constants/cardSprites'
 import '@/assets/card-plan.css'
 
@@ -20,6 +21,8 @@ const { room, players, simulationRemaining, simulation, ranking, gameSummary } =
 
 const roomCode = computed(() => route.params.roomCode?.toString().toUpperCase())
 const cardsStatus = ref(null)
+const currentPlayerCards = ref({})
+const currentCardsFetchKey = ref('')
 let stopPolling = null
 
 const isSimulating = computed(() => room.value?.status === 'simulating')
@@ -35,8 +38,47 @@ const monthLabel = computed(() =>
   THAI_MONTHS[(room.value?.current_month || 1) - 1] || ''
 )
 
+const showThailandMap = computed(() => {
+  if (!room.value || isFinished.value) return false
+  const countryCode = room.value.country_code?.toString().toUpperCase()
+  const countryName = `${room.value.country_name_th || ''} ${room.value.country_name_en || ''}`.toLowerCase()
+  return countryCode === 'TH' || countryName.includes('ไทย') || countryName.includes('thailand')
+})
+
+function cardForMonth(cards, month) {
+  return (cards || []).find((card) => Number(card.month) === Number(month)) || null
+}
+
 function applyDashboard(data) {
   gameRoom.updateFromPoll(data)
+}
+
+async function loadCurrentPlayerCards() {
+  if (!room.value || !players.value.length || !isSimulating.value) {
+    currentPlayerCards.value = {}
+    currentCardsFetchKey.value = ''
+    return
+  }
+
+  const playerIds = players.value.map((player) => player.id).join(',')
+  const key = `${room.value.current_year || 1}:${room.value.current_month || 1}:${playerIds}`
+  if (key === currentCardsFetchKey.value) return
+
+  currentCardsFetchKey.value = key
+  const year = room.value.current_year || 1
+  const month = room.value.current_month || 1
+  const entries = await Promise.all(
+    players.value.map(async (player) => {
+      try {
+        const data = await getPlayerCards(player.id, year)
+        return [player.id, cardForMonth(data.cards, month)]
+      } catch {
+        return [player.id, null]
+      }
+    })
+  )
+
+  currentPlayerCards.value = Object.fromEntries(entries)
 }
 
 async function loadCardsStatus() {
@@ -52,6 +94,7 @@ async function loadDashboard() {
   const data = await getDashboard(roomCode.value)
   applyDashboard(data)
   await loadCardsStatus()
+  await loadCurrentPlayerCards()
 }
 
 onMounted(async () => {
@@ -66,6 +109,7 @@ onMounted(async () => {
     if (data.room?.status === 'planning') {
       await loadCardsStatus()
     }
+    await loadCurrentPlayerCards()
   })
 })
 
@@ -86,7 +130,7 @@ onUnmounted(() => {
 <template>
   <DashboardLayout>
     <MonthSimulationOverlay
-      :active="isSimulating"
+      :active="isSimulating && !showThailandMap"
       :year="room?.current_year || 1"
       :month="room?.current_month || 1"
       :remaining="simulationRemaining"
@@ -147,6 +191,18 @@ onUnmounted(() => {
         </div>
       </div>
 
+      <ThailandGameMap
+        v-if="showThailandMap"
+        class="mb-4"
+        :room="room"
+        :players="players"
+        :ranking="ranking"
+        :current-cards="currentPlayerCards"
+        :remaining="simulationRemaining"
+        :active="isSimulating"
+        :max-players="8"
+      />
+
       <div v-if="ranking?.length" class="card card-farm p-3 mb-4">
         <h5 class="mb-3">อันดับ {{ isFinished ? 'สุดท้าย' : `ปี ${room?.current_year}` }}</h5>
         <div class="table-responsive">
@@ -205,6 +261,7 @@ onUnmounted(() => {
       </div>
 
       <PlayerJoinList
+        v-if="!showThailandMap"
         :players="players"
         :room-player-count="room?.player_count || 0"
       />

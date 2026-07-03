@@ -8,7 +8,7 @@ const props = defineProps({
   active: { type: Boolean, default: false },
   year: { type: Number, default: 1 },
   month: { type: Number, default: 1 },
-  remaining: { type: Number, default: 30 },
+  remaining: { type: Number, default: 15 },
   event: { type: Object, default: null },
 })
 

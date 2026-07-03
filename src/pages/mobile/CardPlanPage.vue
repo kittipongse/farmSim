@@ -3,6 +3,7 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import MobileLayout from '@/layouts/MobileLayout.vue'
 import CardSprite from '@/components/cards/CardSprite.vue'
+import CardActionAnimation from '@/components/sprites/CardActionAnimation.vue'
 import PlantingSeasonGuide from '@/components/PlantingSeasonGuide.vue'
 import { getPlantingGuide } from '@/services/countryService'
 import { useSessionStore } from '@/stores/sessionStore'
@@ -21,6 +22,7 @@ import {
   THAI_MONTHS,
   spriteIndexForCode,
 } from '@/constants/cardSprites'
+import { actionSpriteForCode, hasExactActionSprite } from '@/constants/actionSprites'
 import '@/assets/card-plan.css'
 
 const session = useSessionStore()
@@ -63,6 +65,26 @@ const placementByMonth = computed(() => {
 const usedCodes = computed(() => new Set(placements.value.map((p) => p.card_code)))
 
 const autoMonthCount = computed(() => Math.max(0, 12 - placedCount.value))
+
+const selectedCardMeta = computed(() =>
+  DECISION_CARDS.find((card) => card.code === selectedCard.value)
+)
+
+const selectedAction = computed(() => actionSpriteForCode(selectedCard.value))
+
+const actionPreviewTitle = computed(() =>
+  selectedCardMeta.value?.nameTh || 'เลือกการ์ดเพื่อดูแอนิเมชั่น'
+)
+
+const actionPreviewHint = computed(() => {
+  if (!selectedCard.value) {
+    return 'แตะการ์ดด้านล่าง แล้วตัวละครจะเปลี่ยนท่าตามการ์ดที่เลือก'
+  }
+  if (hasExactActionSprite(selectedCard.value)) {
+    return 'แอนิเมชั่นตรงกับการ์ดนี้ พร้อมวางลงเดือนที่ต้องการ'
+  }
+  return 'ยังไม่มี sprite เฉพาะสำหรับการ์ดนี้ จึงใช้แอนิเมชั่นสำรองไปก่อน'
+})
 
 function onPoll(data) {
   gameRoom.updateFromPoll(data)
@@ -289,6 +311,23 @@ onUnmounted(() => {
             </button>
           </div>
           <PlantingSeasonGuide v-if="showGuide" :guide="plantingGuide" />
+        </div>
+
+        <div class="card card-farm card-action-preview p-3 mb-3">
+          <CardActionAnimation
+            :code="selectedCard"
+            :playing="!!selectedCard"
+            :size="150"
+            :fps="7"
+          />
+          <div class="card-action-preview-copy">
+            <p class="card-action-preview-label mb-1">ตัวอย่างท่าทาง</p>
+            <h3 class="card-action-preview-title">{{ actionPreviewTitle }}</h3>
+            <p class="card-action-preview-hint">{{ actionPreviewHint }}</p>
+            <p v-if="selectedCard" class="card-action-preview-code mb-0">
+              Sprite: {{ selectedAction.nameTh }}
+            </p>
+          </div>
         </div>
 
         <div class="card-plan-grid">
