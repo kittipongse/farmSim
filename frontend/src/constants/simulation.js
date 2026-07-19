@@ -1,0 +1,12 @@
+export const SIMULATION_MONTH_SECONDS = 10
+export const BREAKING_NEWS_SECONDS = 15
+export const MAX_PLAN_ADJUSTMENTS = 2
+export const GAME_YEARS = 1
+export const BONUS_QUIZ_MONTHS = [3, 6, 9, 12]
+export const BONUS_QUIZ_FIRST_CORRECT = 10
+export const BONUS_QUIZ_LATER_CORRECT = 2
+export const BONUS_QUIZ_WRONG = -10
+export const BONUS_QUIZ_ANSWER_SECONDS = 25
+export const BONUS_QUIZ_IDLE_SECONDS = 8
+export const BONUS_QUIZ_IDLE_CLOSE_SECONDS = 5
+export const BONUS_QUIZ_REVEAL_SECONDS = 6

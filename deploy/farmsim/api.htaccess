@@ -1,0 +1,7 @@
+# Backend API at /farmsim/api/ (no BOM — Apache safe)
+RewriteEngine On
+RewriteBase /farmsim/api/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L,QSA]

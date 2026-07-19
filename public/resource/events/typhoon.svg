@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <rect width="128" height="128" rx="16" fill="#0c4a6e"/>
-  <path d="M64 25 C64 25 30 60 30 80 C30 95 45 105 64 105 C83 105 98 95 98 80 C98 60 64 25 64 25Z" fill="none" stroke="#38bdf8" stroke-width="3"/>
-  <path d="M50 70 L64 45 L78 70 L70 70 L75 90 L64 78 L53 90 L58 70 Z" fill="#0ea5e9"/>
-  <text x="64" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700" fill="#bae6fd">2"8DI8H / Typhoon</text>
-</svg>

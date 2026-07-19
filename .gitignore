@@ -1,26 +1,40 @@
-# Logs
-logs
+# Dependencies & build output
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vercel/
+
+# Production DB credentials (never commit)
+backend/config/database.local.php
+deploy/**/config/database.local.php
+scripts/farmsim.secrets.local.ps1
+
+# Deploy artifacts (rebuild with scripts/*.ps1)
+deploy/zcom-upload/
+deploy/farmsim-upload/
+deploy/farmsim-edu-zcom.zip
+deploy/*.zip
+deploy.md
+
+# Env / secrets
+.env
+.env.local
+.env*.local
+frontend/.env
+frontend/.env.local
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Local / IDE
 .DS_Store
+Thumbs.db
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-.vercel
+# PHP uploads (runtime)
+backend/uploads/*
+!backend/uploads/.gitkeep

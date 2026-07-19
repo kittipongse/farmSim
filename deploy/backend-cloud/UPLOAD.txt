@@ -1,0 +1,31 @@
+FarmSim EDU - Backend upload (znix.online / PHP 5.6)
+
+REQUIREMENTS: PHP 5.6+, MySQL 5.6+, extensions: pdo_mysql, mbstring (fileinfo แนะนำ)
+
+1. Upload ENTIRE folder: deploy\backend-cloud\api\
+   TO server path: public_html/farmsim/api/
+
+2. Must contain ALL of these:
+   - index.php
+   - ping.php
+   - check.php
+   - .htaccess
+   - config/ (with database.local.php)
+   - controllers/
+   - models/
+   - helpers/
+   - uploads/ (chmod 755)
+
+3. Test URLs:
+   https://znix.online/farmsim/api/ping.php
+   https://znix.online/farmsim/api/check.php
+   https://znix.online/farmsim/api/health.php
+   https://znix.online/farmsim/api/health
+
+6. After deploy run MySQL migration once:
+   https://znix.online/farmsim/api/run-migrations.php?key=farmsim-phase3
+
+4. Frontend local .env.development:
+   VITE_API_BASE_URL=https://znix.online/farmsim/api
+
+5. Verify PHP 5.6 (local): node scripts/verify-php56.js

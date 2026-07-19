@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <rect width="128" height="128" rx="16" fill="#431407"/>
-  <ellipse cx="64" cy="70" rx="40" ry="15" fill="#ea580c" opacity="0.6"/>
-  <path d="M30 75 Q45 55 64 50 Q83 55 98 75" fill="#f97316" opacity="0.8"/>
-  <path d="M40 65 Q55 45 64 42 Q73 45 88 65" fill="#fbbf24" opacity="0.9"/>
-  <text x="64" y="28" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="24">=%</text>
-  <text x="64" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700" fill="#fed7aa">DH2 / Wildfire</text>
-</svg>

@@ -1,13 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" width="200" height="280">
-  <rect width="200" height="280" rx="12" fill="#fff8e7" stroke="#e9c46a" stroke-width="3"/>
-  <rect x="10" y="10" width="180" height="40" rx="8" fill="#e9c46a"/>
-  <text x="100" y="36" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#333">HARVEST</text>
-  <ellipse cx="100" cy="150" rx="50" ry="30" fill="#d4a373"/>
-  <path d="M55 140 Q70 120 85 135 Q100 115 115 135 Q130 120 145 140" stroke="#e9c46a" stroke-width="3" fill="none"/>
-  <circle cx="75" cy="130" r="8" fill="#f4a261"/>
-  <circle cx="100" cy="125" r="8" fill="#e76f51"/>
-  <circle cx="125" cy="130" r="8" fill="#f4a261"/>
-  <text x="100" y="200" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#6d4c1a">@G@5H"'</text>
-  <text x="100" y="222" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#555">Harvest</text>
-  <text x="100" y="255" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#888">%%4@I2%1</text>
-</svg>

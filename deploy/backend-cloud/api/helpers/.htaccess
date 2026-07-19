@@ -1,0 +1,7 @@
+# ไฟล์ใน helpers/ เป็นคลาสย่อย — ไม่ใช่หน้าเว็บ (เปิดตรงจะว่างหรือถูกบล็อก)
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Deny from all
+</IfModule>

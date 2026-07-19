@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <rect width="128" height="128" rx="16" fill="#023047"/>
-  <path d="M20 90 L40 50 L55 70 L75 35 L95 55 L108 40" stroke="#8ecae6" stroke-width="3" fill="none"/>
-  <path d="M0 95 L128 95 L128 128 L0 128 Z" fill="#219ebc"/>
-  <path d="M0 95 Q30 85 64 90 Q98 95 128 88 L128 95 Z" fill="#023047" opacity="0.3"/>
-  <text x="64" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" fill="#fff">I3H'! / Flood</text>
-  <text x="64" y="28" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="24"><
-</text>
-</svg>

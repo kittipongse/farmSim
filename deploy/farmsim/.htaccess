@@ -1,0 +1,17 @@
+# Deploy in subdirectory: https://znix.online/farmsim/
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /farmsim/
+
+DirectoryIndex index.html index.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/ index.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+</IfModule>
+
+AddDefaultCharset utf-8

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" width="200" height="280">
+  <rect width="200" height="280" rx="12" fill="#fff5f0" stroke="#e76f51" stroke-width="3"/>
+  <rect x="10" y="10" width="180" height="40" rx="8" fill="#e76f51"/>
+  <text x="100" y="36" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#fff">TRADE</text>
+  <rect x="55" y="85" width="90" height="70" rx="6" fill="#f4a261" opacity="0.3" stroke="#e76f51" stroke-width="2"/>
+  <text x="100" y="115" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="28" fill="#e76f51">$</text>
+  <path d="M70 145 L100 125 L130 145" stroke="#2d6a4f" stroke-width="2" fill="none"/>
+  <circle cx="100" cy="155" r="8" fill="#f4a261"/>
+  <text x="100" y="200" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#9c4221">2"%%4</text>
+  <text x="100" y="222" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#555">Sell at Market</text>
+  <text x="100" y="255" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#888">+@+#5" +'2!*2!2#</text>
+</svg>

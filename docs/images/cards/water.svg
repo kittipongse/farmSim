@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" width="200" height="280">
+  <rect width="200" height="280" rx="12" fill="#e8f4f8" stroke="#219ebc" stroke-width="3"/>
+  <rect x="10" y="10" width="180" height="40" rx="8" fill="#219ebc"/>
+  <text x="100" y="36" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#fff">WATER</text>
+  <path d="M100 55 C100 55 60 110 60 145 C60 170 78 185 100 185 C122 185 140 170 140 145 C140 110 100 55 100 55Z" fill="#219ebc"/>
+  <path d="M100 70 C100 70 75 115 75 140 C75 158 86 168 100 168 C114 168 125 158 125 140 C125 115 100 70 100 70Z" fill="#8ecae6" opacity="0.6"/>
+  <text x="100" y="215" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#023047">12#I3</text>
+  <text x="100" y="237" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#555">Water Management</text>
+  <text x="100" y="255" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#888">2#L*1*8</text>
+</svg>
